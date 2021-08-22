@@ -5,28 +5,33 @@
  */
 package controller;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import dbBroker.Broker;
 import domen.Employee;
 import domen.GeneralDomainObject;
 import domen.Reservation;
 import domen.Room;
 import domen.RoomType;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Klasa zadužena za poslovnu logiku sistema
+ *
  * @author MK
  */
 public class Controller {
-
+    
     private static Controller controller;
     private Broker broker = new Broker();
-
+    
     private Controller() {
     }
 
-    /** 
+    /**
      * @return Vraća instancu kontrolera
      */
     public static Controller getInstance() {
@@ -37,8 +42,11 @@ public class Controller {
     }
 
     /**
-     * Metoda za pronalaženje podataka o zaposlenom u bazi podataka na osnovu korisničkog imena i šifre
-     * @param username Korisničko ime zaposlenog koji želi da se uloguje u sistem
+     * Metoda za pronalaženje podataka o zaposlenom u bazi podataka na osnovu
+     * korisničkog imena i šifre
+     *
+     * @param username Korisničko ime zaposlenog koji želi da se uloguje u
+     * sistem
      * @param password Šifra zaposlenog koji želi da se uloguje u sistem
      * @return Vraća Zaposlenog ukoliko postoji u bazi i NULL u suprotnom
      */
@@ -57,19 +65,31 @@ public class Controller {
     }
 
     /**
-     * Metoda za pronalaženje podataka o rezervacijama u bazi podataka 
+     * Metoda za pronalaženje podataka o rezervacijama u bazi podataka
+     *
      * @return Vraća listu svih rezervacija u bazi
      */
     public ArrayList<GeneralDomainObject> getReservations() {
         broker.makeConnection();
         Reservation r = new Reservation();
         ArrayList<GeneralDomainObject> reservations = broker.findRecords(r);
+        try ( FileWriter file = new FileWriter("allReservations.json")) {
+            
+            Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+            file.write("All reservations in database: \n");
+            gson.toJson(reservations, file);            
+            
+        } catch (IOException e) {
+            
+            e.printStackTrace();
+        }
         broker.closeConnection();
         return reservations;
     }
 
     /**
-     * Metoda za pronalaženje podataka o tipovima soba u bazi podataka 
+     * Metoda za pronalaženje podataka o tipovima soba u bazi podataka
+     *
      * @return Vraća listu svih tipova soba u bazi
      */
     public ArrayList<GeneralDomainObject> getRoomTypes() {
@@ -81,10 +101,12 @@ public class Controller {
     }
 
     /**
-     * Metoda za pronalaženje podataka o sobama u bazi podataka na osnovu tipa sobe
+     * Metoda za pronalaženje podataka o sobama u bazi podataka na osnovu tipa
+     * sobe
+     *
      * @param r Sobe koje tažimo u bazi
      * @return Vraća listu svih soba u bazi
-     * 
+     *
      */
     public ArrayList<GeneralDomainObject> getRooms(Room r) {
         broker.makeConnection();
@@ -95,8 +117,10 @@ public class Controller {
 
     /**
      * Metoda za čuvanje rezervacije u bazi podataka
+     *
      * @param res Rezervacija za čuvanje
-     * @return Vraća TRUE ukoliko je operacija uspešno izvršena a FALSE u suprotnom
+     * @return Vraća TRUE ukoliko je operacija uspešno izvršena a FALSE u
+     * suprotnom
      */
     public boolean saveReservation(Reservation res) {
         broker.makeConnection();
@@ -110,6 +134,15 @@ public class Controller {
         }
         if (reservationSaved) {
             broker.commitTransation();
+            try ( FileWriter file = new FileWriter("newReservations.json")) {
+                file.write("New reservation saved: \n");
+                Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+                gson.toJson(res, file);                
+                
+            } catch (IOException e) {
+                
+                e.printStackTrace();
+            }
         } else {
             broker.rollbackTransation();
         }
@@ -119,19 +152,30 @@ public class Controller {
 
     /**
      * Metoda za brisanje rezervacije iz baze podataka
+     *
      * @param res Rezervacija za brisanje
-     * @return Vraća TRUE ukoliko je operacija uspešno izvršena a FALSE u suprotnom
+     * @return Vraća TRUE ukoliko je operacija uspešno izvršena a FALSE u
+     * suprotnom
      */
     public boolean deleteReservation(Reservation res) {
         broker.makeConnection();
         boolean reservationDeleted = broker.deleteRecord(res);
         if (reservationDeleted) {
             broker.commitTransation();
+            try ( FileWriter file = new FileWriter("deletedReservations.json")) {
+                file.write("Reservation deleted: \n");
+                Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+                gson.toJson(res, file);                
+                
+            } catch (IOException e) {
+                
+                e.printStackTrace();
+            }
         } else {
             broker.rollbackTransation();
         }
         broker.closeConnection();
         return reservationDeleted;
     }
-
+    
 }

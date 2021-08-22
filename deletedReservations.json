@@ -1,0 +1,27 @@
+Reservation deleted: 
+{
+  "id": 3,
+  "room": {
+    "type": {
+      "typeID": 1,
+      "typeName": "Single Standard",
+      "features": null,
+      "pricePerNight": 55.0,
+      "capacity": 1
+    },
+    "roomNumber": 102,
+    "view": null,
+    "available": false
+  },
+  "guest": {
+    "passportNumber": null,
+    "firstName": "Nemanja",
+    "lastName": "Davidovic",
+    "contactInfo": "nemanja@gmail.com"
+  },
+  "employee": null,
+  "checkIn": "May 2, 2021, 12:00:00 AM",
+  "checkOut": "May 8, 2021, 12:00:00 AM",
+  "breakfast": null,
+  "total": 368.0
+}

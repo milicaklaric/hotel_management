@@ -1,0 +1,55 @@
+All reservations in database: 
+[
+  {
+    "id": 1,
+    "room": {
+      "type": {
+        "typeID": 2,
+        "typeName": "Double Standard",
+        "features": null,
+        "pricePerNight": 65.0,
+        "capacity": 2
+      },
+      "roomNumber": 105,
+      "view": null,
+      "available": false
+    },
+    "guest": {
+      "passportNumber": null,
+      "firstName": "Nevena",
+      "lastName": "Klaric",
+      "contactInfo": "+381653698563"
+    },
+    "employee": null,
+    "checkIn": "Jan 1, 2021, 12:00:00 AM",
+    "checkOut": "Jan 10, 2021, 12:00:00 AM",
+    "breakfast": null,
+    "total": 450.0
+  },
+  {
+    "id": 2,
+    "room": {
+      "type": {
+        "typeID": 3,
+        "typeName": "Junior Suite",
+        "features": null,
+        "pricePerNight": 65.0,
+        "capacity": 3
+      },
+      "roomNumber": 203,
+      "view": null,
+      "available": false
+    },
+    "guest": {
+      "passportNumber": null,
+      "firstName": "Marijana",
+      "lastName": "Lazic",
+      "contactInfo": "+381645656856"
+    },
+    "employee": null,
+    "checkIn": "May 3, 2021, 12:00:00 AM",
+    "checkOut": "May 7, 2021, 12:00:00 AM",
+    "breakfast": null,
+    "total": 230.0
+  }
+]
