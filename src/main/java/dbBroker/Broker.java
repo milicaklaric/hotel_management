@@ -12,27 +12,31 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Klasa zadužena za komunikaciju sa bazom podataka
  * @author MK
  */
 public class Broker {
 
+    /**
+     * Konekcija ka bazi podataka
+     */
     Connection conn = null;
 
+    /**
+     * Metoda koja uspostavlja konekciju sa bazom
+     * @return Vraća TRUE ukoliko je konekcija uspešno uspostavljena i FALSE u suprotnom
+     */
     public boolean makeConnection() {
         String Url;
 
         try {
             Class.forName("org.sqlite.JDBC");
-            Url = "jdbc:sqlite:ttp-db.s3db";//+path
+            Url = "jdbc:sqlite:ttp-db.s3db";
             conn = DriverManager.getConnection(Url);
-            conn.setAutoCommit(false); // Ako se ovo ne uradi nece moci da se radi roolback.
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Broker.class.getName()).log(Level.SEVERE, null, ex);
             return false;
@@ -40,16 +44,31 @@ public class Broker {
         return true;
     }
 
+    /**
+     * Metoda koja upisuje novi zapis u odredjenu tabelu u bazi
+     * @param odo Domenski objekat koji se upisuje u bazu podataka
+     * @return Vraća TRUE ukoliko je operacija uspešno izvršena
+     */
     public boolean insertRecord(GeneralDomainObject odo) {
         String sql = "INSERT INTO " + odo.TableName() + " VALUES (" + odo.Insert() + ")";
         return executeUpdate(sql);
     }
 
+    /**
+     * Metoda koja briše zapis iz odredjene tabelu u bazi
+     * @param odo Domenski objekat koji brišemo iz baze podataka
+     * @return Vraća TRUE ukoliko je operacija uspešno izvršena
+     */
     public boolean deleteRecord(GeneralDomainObject odo) {
         String upit = "DELETE FROM " + odo.TableName() + odo.Update();
         return executeUpdate(upit);
     }
 
+    /**
+     * Metoda ya izvršavanje posledjenog SQL upita nad bazom podataka
+     * @param sql SQL upit koji se izvršava nad bazom podataka
+     * @return Vraća TRUE ukoliko je operacija uspeštno izvršena
+     */
     public boolean executeUpdate(String sql) {
         Statement st = null;
         boolean signal = false;
@@ -68,6 +87,11 @@ public class Broker {
         return signal;
     }
 
+    /**
+     * Metoda koja u bazi podataka pronalazi podatke o odredjenom domenskom objektu
+     * @param odo Domenski objekat koji tražimo u bazi podataka
+     * @return Vraća instancu traženog domenskog objekta
+     */
     public GeneralDomainObject findRecord(GeneralDomainObject odo) {
         ResultSet rs = null;
         Statement st = null;
@@ -90,6 +114,11 @@ public class Broker {
         return odo;
     }
 
+    /**
+     * Metoda koja u bazi podataka pronalazi podatke o odredjenom domenskom objektu
+     * @param odo Domenski objekti koje tražimo u bazi podataka
+     * @return Vraća listu objekata traženog tipa
+     */
     public ArrayList<GeneralDomainObject> findRecords(GeneralDomainObject odo) {
         ArrayList<GeneralDomainObject> records = new ArrayList<>();
         ResultSet rs = null;
@@ -112,6 +141,9 @@ public class Broker {
         return records;
     }
 
+    /**
+     * @return Vraća TRUE ukoliko su promene u bazi uspešno commit-ovane
+     */
     public boolean commitTransation() {
         try {
             conn.commit();
@@ -121,6 +153,10 @@ public class Broker {
         return true;
     }
 
+    /**
+     * Metoda poništava promene u bazi
+     * @return Vraća TRUE ukoliko je operacija uspešno izvršena
+     */
     public boolean rollbackTransation() {
         try {
             conn.rollback();
@@ -131,10 +167,19 @@ public class Broker {
         return true;
     }
 
+    /**
+     * Metoda zatvara konekciju sa bazom podataka
+     */
     public void closeConnection() {
         close(conn, null, null);
     }
 
+    /**
+     * Metoda zatvara konekciju sa bazom podataka
+     * @param conn Konekcija
+     * @param st Statement
+     * @param rs Rezultat upita izvršenog nad bazom
+     */
     public void close(Connection conn, Statement st, ResultSet rs) {
         if (rs != null) {
             try {

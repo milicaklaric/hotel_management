@@ -7,61 +7,51 @@ package domen;
 
 import java.sql.ResultSet;
 import java.util.List;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
- *
+ * Klasa koja predstavlja gosta u hotelu
+ * Za svakog gosta se čuva njegov broj pasoša, ime, prezime i kontakt informacije
  * @author MK
  */
+@Getter
+@Setter
+@NoArgsConstructor
 public class Guest extends GeneralDomainObject {
 
+    /**
+     * Broj pasoša gosta hotela
+     */
     private String passportNumber;
+    /**
+     * Ime gosta hotela
+     */
     private String firstName;
+    /**
+     * Prezime gosta hotela
+     */
     private String lastName;
+    /**
+     * Kontakt informacije gosta hotela
+     */
     private String contactInfo;
 
-    public Guest() {
-    }
-
+    /**
+     * Parametarski konstruktor koji instancira objekat i postavlja vrednosti za sve atribute na osnovu
+     * zadatih parametara
+     * @param passportNumber Broj pasoša gosta hotela
+     * @param firstName Ime gosta hotela
+     * @param lastName Prezime gosta hotela
+     * @param contactInfo Kontakt informacije gosta hotela
+     */
     public Guest(String passportNumber, String firstName, String lastName, String contactInfo) {
         this.passportNumber = passportNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.contactInfo = contactInfo;
     }
-
-    public String getPassportNumber() {
-        return passportNumber;
-    }
-
-    public void setPassportNumber(String passportNumber) {
-        this.passportNumber = passportNumber;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getContactInfo() {
-        return contactInfo;
-    }
-
-    public void setContactInfo(String contactInfo) {
-        this.contactInfo = contactInfo;
-    }
-    
-    
     
     @Override
     public String TableName() {
@@ -95,14 +85,17 @@ public class Guest extends GeneralDomainObject {
 
     @Override
     public GeneralDomainObject GetRecord(ResultSet rs) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
+    /**
+     * @return Vraća string sa svim podacima o gostu hotela
+     */
     @Override
     public String toString() {
         return firstName + " " + lastName;
     }
-    
+
     
     
 }

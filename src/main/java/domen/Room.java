@@ -7,21 +7,53 @@ package domen;
 
 import java.sql.ResultSet;
 import java.util.List;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
+ * Klasa koja predstavlja sobu hotela Za svaku sobu čuvaju se podaci o tipu
+ * sobe, broju sobe, pogledu i tome da li je u datom trenutku dostupna
  *
  * @author MK
  */
-public class Room extends GeneralDomainObject{
+@Getter
+@Setter
+@NoArgsConstructor
+public class Room extends GeneralDomainObject {
 
+    /**
+     * Tip sobe
+     */
     private RoomType type;
+    /**
+     * Broj sobe
+     */
     private int roomNumber;
+    /**
+     * Soba moze imati pogled na:
+     * <ul>
+     *  <li>baštu</li>
+     *  <li>plažu</li>
+     *  <li>i na baštu i na plažu</li>
+     * </ul>
+     * 
+     */
     private String view;
+
+    /**
+     * Podatak o tome da li je soba dostupna za traženi datum
+     */
     private boolean available;
 
-    public Room() {
-    }
-
+    /**
+     * Parametarski konstruktor koji instancira objekat i postavlja vrednosti za sve atribute na osnovu
+     * zadatih parametara
+     * @param type Tip sobe
+     * @param roomNumber Broj sobe
+     * @param view Pogled iz sobe
+     * @param available Podatak o tome da li je soba dostupna za traženi datum
+     */
     public Room(RoomType type, int roomNumber, String view, boolean available) {
         this.type = type;
         this.roomNumber = roomNumber;
@@ -29,40 +61,6 @@ public class Room extends GeneralDomainObject{
         this.available = available;
     }
 
-    public RoomType getType() {
-        return type;
-    }
-
-    public void setType(RoomType type) {
-        this.type = type;
-    }
-
-    public int getRoomNumber() {
-        return roomNumber;
-    }
-
-    public void setRoomNumber(int roomNumber) {
-        this.roomNumber = roomNumber;
-    }
-
-    public String getView() {
-        return view;
-    }
-
-    public void setView(String view) {
-        this.view = view;
-    }
-
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
-    
-     
-    
     @Override
     public String TableName() {
         return "Room";
@@ -101,13 +99,14 @@ public class Room extends GeneralDomainObject{
         return room;
     }
 
+    /**
+     * Proverava da li su dva objekta jednaka prema atributu broj sobe
+     * @param obj Instanca objekta koji želimo da poredimo
+     * @return Vraća vrednost TRUE ukoliko su oba objekta tipa Room i imaju isti broj sobe
+     */
     @Override
     public boolean equals(Object obj) {
-        return this.roomNumber==((Room)obj).roomNumber;
+        return this.roomNumber == ((Room) obj).roomNumber;
     }
-    
-    
-    
+
 }
-
-

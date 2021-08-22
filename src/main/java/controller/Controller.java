@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Klasa zadužena za poslovnu logiku sistema
  * @author MK
  */
 public class Controller {
@@ -24,9 +24,11 @@ public class Controller {
     private Broker broker = new Broker();
 
     private Controller() {
-
     }
 
+    /** 
+     * @return Vraća instancu kontrolera
+     */
     public static Controller getInstance() {
         if (controller == null) {
             controller = new Controller();
@@ -34,6 +36,12 @@ public class Controller {
         return controller;
     }
 
+    /**
+     * Metoda za pronalaženje podataka o zaposlenom u bazi podataka na osnovu korisničkog imena i šifre
+     * @param username Korisničko ime zaposlenog koji želi da se uloguje u sistem
+     * @param password Šifra zaposlenog koji želi da se uloguje u sistem
+     * @return Vraća Zaposlenog ukoliko postoji u bazi i NULL u suprotnom
+     */
     public Employee getEmployee(String username, String password) {
         broker.makeConnection();
         Employee e = new Employee(username, password, username);
@@ -48,6 +56,10 @@ public class Controller {
         return null;
     }
 
+    /**
+     * Metoda za pronalaženje podataka o rezervacijama u bazi podataka 
+     * @return Vraća listu svih rezervacija u bazi
+     */
     public ArrayList<GeneralDomainObject> getReservations() {
         broker.makeConnection();
         Reservation r = new Reservation();
@@ -56,6 +68,10 @@ public class Controller {
         return reservations;
     }
 
+    /**
+     * Metoda za pronalaženje podataka o tipovima soba u bazi podataka 
+     * @return Vraća listu svih tipova soba u bazi
+     */
     public ArrayList<GeneralDomainObject> getRoomTypes() {
         broker.makeConnection();
         RoomType rt = new RoomType();
@@ -64,6 +80,12 @@ public class Controller {
         return roomTypes;
     }
 
+    /**
+     * Metoda za pronalaženje podataka o sobama u bazi podataka na osnovu tipa sobe
+     * @param r Sobe koje tažimo u bazi
+     * @return Vraća listu svih soba u bazi
+     * 
+     */
     public ArrayList<GeneralDomainObject> getRooms(Room r) {
         broker.makeConnection();
         ArrayList<GeneralDomainObject> roomTypes = broker.findRecords(r);
@@ -71,21 +93,43 @@ public class Controller {
         return roomTypes;
     }
 
+    /**
+     * Metoda za čuvanje rezervacije u bazi podataka
+     * @param res Rezervacija za čuvanje
+     * @return Vraća TRUE ukoliko je operacija uspešno izvršena a FALSE u suprotnom
+     */
     public boolean saveReservation(Reservation res) {
         broker.makeConnection();
         boolean guestSaved = broker.insertRecord(res.getGuest());
         boolean reservationSaved = false;
         if (guestSaved) {
+            broker.commitTransation();
             reservationSaved = broker.insertRecord(res);
+        } else {
+            broker.rollbackTransation();
         }
-
+        if (reservationSaved) {
+            broker.commitTransation();
+        } else {
+            broker.rollbackTransation();
+        }
         broker.closeConnection();
         return reservationSaved;
     }
 
+    /**
+     * Metoda za brisanje rezervacije iz baze podataka
+     * @param res Rezervacija za brisanje
+     * @return Vraća TRUE ukoliko je operacija uspešno izvršena a FALSE u suprotnom
+     */
     public boolean deleteReservation(Reservation res) {
         broker.makeConnection();
         boolean reservationDeleted = broker.deleteRecord(res);
+        if (reservationDeleted) {
+            broker.commitTransation();
+        } else {
+            broker.rollbackTransation();
+        }
         broker.closeConnection();
         return reservationDeleted;
     }
