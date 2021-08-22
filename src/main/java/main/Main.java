@@ -6,8 +6,10 @@
 package main;
 
 /**
- *
+ * Main class for project
+ * 
  * @author MK
+ * @version 0.1
  */
 import view.coordinator.*;
 

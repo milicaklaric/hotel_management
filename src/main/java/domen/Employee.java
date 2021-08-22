@@ -5,58 +5,50 @@
  */
 package domen;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
- *
+ * Klasa koja predstavlja zaposlenog u hotelu
+ * Zaposleni ima ime, kao i korisničko ime i šifru za prijavljivanje na sistem
  * @author MK
  */
+@Getter
+@Setter
+@NoArgsConstructor
 public class Employee extends GeneralDomainObject {
 
+    /**
+     * Korisničko ime zaposlenog
+     */
     private String username;
+    /**
+     * šifra zaposlenog
+     */
     private String password;
+    /**
+     * Ime i prezime zaposlenog
+     */
     private String name;
 
-    public Employee() {
-    }
-
+    /**
+     * Parametarski konstruktor koji instancira objekat i postavlja vrednosti za sve atribute na osnovu
+     * zadatih parametara
+     * @param username Korisničko ime zaposlenog
+     * @param password Šifra zaposlenog
+     * @param name Ime i prezime zaposlenog
+     */
     public Employee(String username, String password, String name) {
         this.username = username;
         this.password = password;
         this.name = name;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+  
     @Override
     public String TableName() {
         return "Employee";
@@ -107,6 +99,9 @@ public class Employee extends GeneralDomainObject {
         return e;
     }
 
+    /**
+     * @return Vraća string sa svim podacima o zaposlenom
+     */
     @Override
     public String toString() {
         return name;

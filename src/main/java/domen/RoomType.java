@@ -7,21 +7,50 @@ package domen;
 
 import java.sql.ResultSet;
 import java.util.List;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
- *
+ * Klasa koja označava tip sobe
+ * Za svaki tip sobe čuva se njegov ID, naziv, karakteristike, cena po noći i kapacitet
  * @author MK
  */
+@Getter
+@Setter
+@NoArgsConstructor
 public class RoomType extends GeneralDomainObject{
+    
+    /**
+     * ID tipa sobe
+     */
     private int typeID;
+    /**
+     * Naziv tipa sobe
+     */
     private String typeName;
+    /**
+     * Karakteristike tipa sobe
+     */
     private String features;
+    /**
+     * Cena po noći
+     */
     private double pricePerNight;
+    /**
+     * Kapacitet odnosno broj ljudi koji mogu da odsedaju u datom tipu sobe
+     */
     private int capacity;
 
-    public RoomType() {
-    }
-
+    /**
+     * Parametarski konstruktor koji instancira objekat i postavlja vrednosti za sve atribute na osnovu
+     * zadatih parametara
+     * @param typeID ID tipa sobe
+     * @param typeName Naziv tipa sobe
+     * @param features Karakteristike tipa sobe
+     * @param pricePerNight Cena po noći
+     * @param capacity  Kapacitet odnosno broj ljudi koji mogu da odsedaju u datom tipu sobe
+     */
     public RoomType(int typeID, String typeName, String features, double pricePerNight, int capacity) {
         this.typeID = typeID;
         this.typeName = typeName;
@@ -29,48 +58,6 @@ public class RoomType extends GeneralDomainObject{
         this.pricePerNight = pricePerNight;
         this.capacity = capacity;
     }
-
-    public int getTypeID() {
-        return typeID;
-    }
-
-    public void setTypeID(int typeID) {
-        this.typeID = typeID;
-    }
-
-    public String getTypeName() {
-        return typeName;
-    }
-
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
-    }
-
-    public String getFeatures() {
-        return features;
-    }
-
-    public void setFeatures(String features) {
-        this.features = features;
-    }
-
-    public double getPricePerNight() {
-        return pricePerNight;
-    }
-
-    public void setPricePerNight(double pricePerNight) {
-        this.pricePerNight = pricePerNight;
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-    
-    
 
     @Override
     public String TableName() {
@@ -113,6 +100,10 @@ public class RoomType extends GeneralDomainObject{
         return rt;
     }
 
+    /**
+     * 
+     * @return Vraća string informacijama o ceni i kapacitetu za odredjeni tip sobe
+     */
     @Override
     public String toString() {
         return typeID +" "+ typeName + " - " + pricePerNight + " eur/night - " + capacity + " people max";

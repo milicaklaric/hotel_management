@@ -9,25 +9,66 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
- *
+ * Klasa koja predstavlja jednu rezervaciju sobe u hotelu
+ * Svaka rezervacija ima svoj ID
+ * Za svaku rezervaciju čuvaju se podaci o gostu, sobi, zaposlenom koji je izvršio rezercvaciju,
+ * datumu početka i kraja rezervacije, o tome da li je uključen doručak i ukupnoj ceni boravka
  * @author MK
  */
+@Getter
+@Setter
+@NoArgsConstructor
 public class Reservation extends GeneralDomainObject {
 
+    /**
+     * ID rezervacije
+     */
     private int id;
+    /**
+     * Soba koja je rezervisana
+     */
     private Room room;
+    /**
+     * Gost koji je rezervisao boravak u hotelu
+     */
     private Guest guest;
+    /**
+     * Zaposleni koji je izvršio rezervaciju preko sistema
+     */
     private Employee employee;
+    /**
+     * Datum početka boravka gosta u hotelu
+     */
     private Date checkIn;
+    /**
+     * Datum odjavljivanja gosta iz hotela
+     */
     private Date checkOut;
+    /**
+     * Podatak o tome da li je uključen dorucak
+     */
     private String breakfast;
+    /**
+     * Ukupna cena boravka u hotelu
+     */
     private double total;
 
-    public Reservation() {
-    }
-
+    /**
+     * Parametarski konstruktor koji instancira objekat i postavlja vrednosti za sve atribute na osnovu
+     * zadatih parametara
+     * @param id ID rezervacije
+     * @param room Soba koja je rezervisana
+     * @param guest Gost koji je rezervisao boravak u hotelu
+     * @param employee Zaposleni koji je izvršio rezervaciju preko sistema
+     * @param checkIn Datum početka boravka gosta u hotelu
+     * @param checkOut Datum odjavljivanja gosta iz hotela
+     * @param breakfast  Podatak o tome da li je uključen dorucakPodatak o tome da li je uključen dorucak
+     */
     public Reservation(int id, Room room, Guest guest, Employee employee, Date checkIn, Date checkOut, String breakfast) {
         this.id = id;
         this.room = room;
@@ -36,72 +77,6 @@ public class Reservation extends GeneralDomainObject {
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.breakfast = breakfast;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-    
-    
-
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
-    public Guest getGuest() {
-        return guest;
-    }
-
-    public void setGuest(Guest guest) {
-        this.guest = guest;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    public Date getCheckIn() {
-        return checkIn;
-    }
-
-    public void setCheckIn(Date checkIn) {
-        this.checkIn = checkIn;
-    }
-
-    public Date getCheckOut() {
-        return checkOut;
-    }
-
-    public void setCheckOut(Date checkOut) {
-        this.checkOut = checkOut;
-    }
-
-    public String getBreakfast() {
-        return breakfast;
-    }
-
-    public void setBreakfast(String breakfast) {
-        this.breakfast = breakfast;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
     }
 
     @Override
@@ -126,6 +101,8 @@ public class Reservation extends GeneralDomainObject {
 
     @Override
     public String Insert() {
+        String insert = (id + ", " +(room == null ? null : room.getRoomNumber()) + ", " + (guest == null ? null : "'" + guest.getPassportNumber() + "'") + ", " + (checkIn == null ? null : "'" + checkIn + "'") + ", " + (checkOut == null ? null : "'" + checkOut + "'") + ", " + (employee == null ? null : "'" + employee.getUsername() + "'") + ", " + (breakfast == null ? null : "'" + breakfast + "'") + ", " + total);
+        System.out.println(insert);
         return id + ", " +(room == null ? null : room.getRoomNumber()) + ", " + (guest == null ? null : "'" + guest.getPassportNumber() + "'") + ", " + (checkIn == null ? null : "'" + checkIn + "'") + ", " + (checkOut == null ? null : "'" + checkOut + "'") + ", " + (employee == null ? null : "'" + employee.getUsername() + "'") + ", " + (breakfast == null ? null : "'" + breakfast + "'") + ", " + total;
     }
 
