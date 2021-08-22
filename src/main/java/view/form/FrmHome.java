@@ -66,7 +66,7 @@ public class FrmHome extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/hotel_logo1.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\MK\\Documents\\GitHub\\hotel_management\\src\\main\\java\\sources\\hotel_logo1.png")); // NOI18N
 
         lblEmployee.setForeground(new java.awt.Color(206, 223, 217));
         lblEmployee.setText("Employee: ");

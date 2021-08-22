@@ -115,11 +115,11 @@ public class FrmLogIn extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/hotel_logo1.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\MK\\Documents\\GitHub\\hotel_management\\src\\main\\java\\sources\\hotel_logo1.png")); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/user white border.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\MK\\Documents\\GitHub\\hotel_management\\src\\main\\java\\sources\\user white border.png")); // NOI18N
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/lock white full.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\MK\\Documents\\GitHub\\hotel_management\\src\\main\\java\\sources\\lock white full.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

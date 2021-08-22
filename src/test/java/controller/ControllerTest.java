@@ -11,6 +11,8 @@ import domen.GeneralDomainObject;
 import domen.Guest;
 import domen.Reservation;
 import domen.Room;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import org.junit.jupiter.api.AfterEach;
@@ -25,11 +27,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ControllerTest {
     
     private static Controller controller;
-    private Broker broker;
     
     public ControllerTest(){
         controller = Controller.getInstance();
-        broker = new Broker();
     }
     
     @BeforeEach
@@ -116,17 +116,20 @@ public class ControllerTest {
      * Test of saveReservation method, of class Controller.
      */
     @Test
-    public void testSaveReservation() {
+    public void testSaveReservation() throws ParseException {
         System.out.println("saveReservation");
         
         Reservation res = new Reservation();
         Room room = new Room();
         room.setRoomNumber(104);
         Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("0012345678","Milan","Cekic","m.cekic@gmailc.com");
+        Guest guest = new Guest("001156963","Milan","Cekic","m.cekic@gmailc.com");
         Date checkIn = new Date(2021, 5, 22);
         Date checkOut = new Date(2021, 5, 28);
+        
         res = new Reservation(44,room,guest,employee,checkIn,checkOut,"no");
+        res.setCheckIn(new SimpleDateFormat("yyyy-MM-dd").parse("2021-05-05"));
+        res.setCheckOut(new SimpleDateFormat("yyyy-MM-dd").parse("2021-05-12"));
         res.setTotal(195.0);
         
         boolean saved = controller.saveReservation(res);
@@ -144,16 +147,18 @@ public class ControllerTest {
      * Test of deleteReservation method, of class Controller.
      */
     @Test
-    public void testDeleteReservation() {
+    public void testDeleteReservation() throws ParseException {
         System.out.println("deleteReservation");
         Reservation res ;
         Room room = new Room();
         room.setRoomNumber(104);
         Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("12345647891011","Milan","Cekic","m.cekic@gmailc.com");
+        Guest guest = new Guest("000896563","Djuro","Kukic","dj.kukic@gmailc.com");
         Date checkIn = new Date(2021, 5, 22);
         Date checkOut = new Date(2021, 5, 28);
         res = new Reservation(55,room,guest,employee,checkIn,checkOut,"no");
+        res.setCheckIn(new SimpleDateFormat("yyyy-MM-dd").parse("2021-05-05"));
+        res.setCheckOut(new SimpleDateFormat("yyyy-MM-dd").parse("2021-05-12"));
         res.setTotal(195.0);
         
         boolean saved = controller.saveReservation(res);

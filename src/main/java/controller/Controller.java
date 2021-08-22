@@ -44,7 +44,7 @@ public class Controller {
      */
     public Employee getEmployee(String username, String password) {
         broker.makeConnection();
-        Employee e = new Employee(username, password, username);
+        Employee e = new Employee(username, password, "");
         GeneralDomainObject emp = broker.findRecord(e);
         e = (Employee) emp;
         if (e != null) {
