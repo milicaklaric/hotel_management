@@ -9,7 +9,9 @@ import controller.Controller;
 import domen.Employee;
 import domen.GeneralDomainObject;
 import domen.Guest;
+import domen.GuestValidation;
 import domen.Reservation;
+import domen.ReservationValidation;
 import domen.Room;
 import domen.RoomType;
 import java.awt.event.ActionEvent;
@@ -188,12 +190,17 @@ public class NewReservationController {
                     }
                     res.setTotal(countTotal(r.getType(), from, to));
                     res.setEmployee(employee);
-
-                    if (Controller.getInstance().saveReservation(res)) {
+                    
+                    if (GuestValidation.allFieldsAreRequired(g) &&
+                            ReservationValidation.correctDates(res) &&
+                            ReservationValidation.allFieldsAreRequired(res)){
+                        if (Controller.getInstance().saveReservation(res)) {
                         JOptionPane.showMessageDialog(frmNewReservation, "Reservation successfully saved!", "Success", JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         JOptionPane.showMessageDialog(frmNewReservation, "Reservation couldn't be saved", "Fail", JOptionPane.ERROR_MESSAGE);
                     }
+                    }
+                    
 
                 }
 
