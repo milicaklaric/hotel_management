@@ -1,6 +1,7 @@
 view\form\FrmLogIn$4.class
 view\form\FrmCancelReservation$4.class
 view\form\FrmNewReservation$2.class
+domen\ReservationValidation.class
 view\form\FrmAllReservations$4.class
 view\controller\NewReservationController.class
 main\Main.class
@@ -43,6 +44,7 @@ view\form\FrmCancelReservation$5.class
 view\form\FrmHome$1.class
 domen\Employee.class
 view\form\FrmLogIn.class
+domen\GuestValidation.class
 view\controller\HomeController$3.class
 view\form\FrmAllReservations.class
 domen\Reservation.class

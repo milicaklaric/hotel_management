@@ -1,5 +1,6 @@
 C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\view\controller\LoginController.java
 C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\view\form\table\ReservationsTableModel.java
+C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\domen\ReservationValidation.java
 C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\domen\RoomType.java
 C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\view\controller\NewReservationController.java
 C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\view\form\FrmLogIn.java
@@ -11,6 +12,7 @@ C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\main\Main.java
 C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\view\controller\HomeController.java
 C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\view\coordinator\MainCoordinator.java
 C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\view\form\FrmHome.java
+C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\domen\GuestValidation.java
 C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\domen\Room.java
 C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\domen\Employee.java
 C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\domen\Guest.java

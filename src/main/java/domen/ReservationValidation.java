@@ -12,7 +12,7 @@ package domen;
 public class ReservationValidation {
     
     public static boolean correctDates(Reservation res){
-        return !res.getCheckIn().before(res.getCheckIn());
+        return !res.getCheckOut().before(res.getCheckIn());
     }
 
     public static boolean allFieldsAreRequired(Reservation res) {
