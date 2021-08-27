@@ -5,13 +5,22 @@
  */
 package controller;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import dbBroker.Broker;
 import domen.Employee;
 import domen.GeneralDomainObject;
 import domen.Reservation;
 import domen.Room;
 import domen.RoomType;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Klasa zadužena za poslovnu logiku sistema
@@ -122,6 +131,28 @@ public class Controller {
         }
         if (reservationSaved) {
             broker.commitTransation();
+            try ( FileReader fileRead = new FileReader("savedReservations.json")) {
+                Gson gson = new Gson();
+
+                Type typeToken = new TypeToken<LinkedList<Reservation>>() {
+                }.getType();
+                List<Reservation> savedReservations = gson.fromJson(fileRead, typeToken);
+
+                savedReservations.add(res);
+
+                try ( FileWriter fileWrite = new FileWriter("savedReservations.json")) {
+                    fileWrite.write("New reservation saved: \n");
+                    Gson gsonWrite = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+                    gsonWrite.toJson(res, fileWrite);
+
+                } catch (IOException e) {
+
+                    e.printStackTrace();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             broker.rollbackTransation();
         }
@@ -139,6 +170,28 @@ public class Controller {
         boolean reservationDeleted = broker.deleteRecord(res);
         if (reservationDeleted) {
             broker.commitTransation();
+            try ( FileReader fileRead = new FileReader("deletedReservations.json")) {
+                Gson gson = new Gson();
+
+                Type typeToken = new TypeToken<LinkedList<Reservation>>() {
+                }.getType();
+                List<Reservation> savedReservations = gson.fromJson(fileRead, typeToken);
+
+                savedReservations.add(res);
+
+                try ( FileWriter fileWrite = new FileWriter("deletedReservations.json")) {
+                    fileWrite.write("Reservation deleted: \n");
+                    Gson gsonWrite = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+                    gsonWrite.toJson(res, fileWrite);
+
+                } catch (IOException e) {
+
+                    e.printStackTrace();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             broker.rollbackTransation();
         }
