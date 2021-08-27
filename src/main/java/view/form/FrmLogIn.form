@@ -261,21 +261,21 @@
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/sources/hotel_logo1.png"/>
+              <Image iconType="2" name="C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\sources\hotel_logo1.png"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/sources/user white border.png"/>
+              <Image iconType="2" name="C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\sources\user white border.png"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/sources/lock white full.png"/>
+              <Image iconType="2" name="C:\Users\MK\Documents\GitHub\hotel_management\src\main\java\sources\lock white full.png"/>
             </Property>
           </Properties>
         </Component>

@@ -22,8 +22,10 @@ public class Controller {
 
     private static Controller controller;
     private Broker broker = new Broker();
+    private String url;
 
-    private Controller() {
+    private Controller(String url) {
+        this.url = url;
     }
 
     /** 
@@ -31,7 +33,14 @@ public class Controller {
      */
     public static Controller getInstance() {
         if (controller == null) {
-            controller = new Controller();
+            controller = new Controller("jdbc:sqlite:ttp-db.s3db");
+        }
+        return controller;
+    }
+    
+    public static Controller getInstanceForTests() {
+        if (controller == null) {
+            controller = new Controller("jdbc:sqlite:ttp-db-test.s3db");
         }
         return controller;
     }
@@ -43,7 +52,7 @@ public class Controller {
      * @return Vraća Zaposlenog ukoliko postoji u bazi i NULL u suprotnom
      */
     public Employee getEmployee(String username, String password) {
-        broker.makeConnection();
+        broker.makeConnection(url);
         Employee e = new Employee(username, password, username);
         GeneralDomainObject emp = broker.findRecord(e);
         e = (Employee) emp;
@@ -61,7 +70,7 @@ public class Controller {
      * @return Vraća listu svih rezervacija u bazi
      */
     public ArrayList<GeneralDomainObject> getReservations() {
-        broker.makeConnection();
+        broker.makeConnection(url);
         Reservation r = new Reservation();
         ArrayList<GeneralDomainObject> reservations = broker.findRecords(r);
         broker.closeConnection();
@@ -73,7 +82,7 @@ public class Controller {
      * @return Vraća listu svih tipova soba u bazi
      */
     public ArrayList<GeneralDomainObject> getRoomTypes() {
-        broker.makeConnection();
+        broker.makeConnection(url);
         RoomType rt = new RoomType();
         ArrayList<GeneralDomainObject> roomTypes = broker.findRecords(rt);
         broker.closeConnection();
@@ -87,7 +96,7 @@ public class Controller {
      * 
      */
     public ArrayList<GeneralDomainObject> getRooms(Room r) {
-        broker.makeConnection();
+        broker.makeConnection(url);
         ArrayList<GeneralDomainObject> roomTypes = broker.findRecords(r);
         broker.closeConnection();
         return roomTypes;
@@ -99,7 +108,7 @@ public class Controller {
      * @return Vraća TRUE ukoliko je operacija uspešno izvršena a FALSE u suprotnom
      */
     public boolean saveReservation(Reservation res) {
-        broker.makeConnection();
+        broker.makeConnection(url);
         boolean guestSaved = broker.insertRecord(res.getGuest());
         boolean reservationSaved = false;
         if (guestSaved) {
@@ -123,7 +132,7 @@ public class Controller {
      * @return Vraća TRUE ukoliko je operacija uspešno izvršena a FALSE u suprotnom
      */
     public boolean deleteReservation(Reservation res) {
-        broker.makeConnection();
+        broker.makeConnection(url);
         boolean reservationDeleted = broker.deleteRecord(res);
         if (reservationDeleted) {
             broker.commitTransation();
@@ -133,5 +142,6 @@ public class Controller {
         broker.closeConnection();
         return reservationDeleted;
     }
+
 
 }

@@ -28,14 +28,15 @@ public class Broker {
 
     /**
      * Metoda koja uspostavlja konekciju sa bazom
+     * @param url Url kao String vrednost
      * @return Vraća TRUE ukoliko je konekcija uspešno uspostavljena i FALSE u suprotnom
      */
-    public boolean makeConnection() {
+    public boolean makeConnection(String url) {
         String Url;
 
         try {
             Class.forName("org.sqlite.JDBC");
-            Url = "jdbc:sqlite:ttp-db.s3db";
+            Url = url;//"jdbc:sqlite:ttp-db.s3db";
             conn = DriverManager.getConnection(Url);
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Broker.class.getName()).log(Level.SEVERE, null, ex);
