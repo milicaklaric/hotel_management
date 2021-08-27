@@ -11,8 +11,11 @@ import domen.GeneralDomainObject;
 import domen.Reservation;
 import domen.Room;
 import domen.RoomType;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Klasa zadužena za poslovnu logiku sistema
@@ -107,13 +110,17 @@ public class Controller {
      * @param res Rezervacija za čuvanje
      * @return Vraća TRUE ukoliko je operacija uspešno izvršena a FALSE u suprotnom
      */
-    public boolean saveReservation(Reservation res) {
+    public boolean saveReservation(Reservation res)  {
         broker.makeConnection(url);
-        boolean guestSaved = broker.insertRecord(res.getGuest());
+        boolean guestSaved;
+        broker.insertRecord(res.getGuest());
+        guestSaved = true;
         boolean reservationSaved = false;
         if (guestSaved) {
             broker.commitTransation();
-            reservationSaved = broker.insertRecord(res);
+           
+                reservationSaved = broker.insertRecord(res);
+            
         } else {
             broker.rollbackTransation();
         }

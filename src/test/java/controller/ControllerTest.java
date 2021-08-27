@@ -90,7 +90,7 @@ public class ControllerTest {
         System.out.println("getReservations");
         ArrayList<GeneralDomainObject> result = controller.getReservations();
         assertNotNull(result);
-        assertEquals(2,result.size());
+        assertEquals(4,result.size());
     }
 
     /**

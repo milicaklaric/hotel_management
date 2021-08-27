@@ -52,6 +52,7 @@ public class Broker {
      */
     public boolean insertRecord(GeneralDomainObject odo) {
         String sql = "INSERT INTO " + odo.TableName() + " VALUES (" + odo.Insert() + ")";
+        
         return executeUpdate(sql);
     }
 
@@ -80,7 +81,7 @@ public class Broker {
                 signal = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Broker.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(Broker.class.getName()).log(Level.SEVERE, null, ex);
             signal = false;
         } finally {
             close(null, st, null);
