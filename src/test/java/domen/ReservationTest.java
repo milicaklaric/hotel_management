@@ -96,15 +96,6 @@ public class ReservationTest {
      */
     @Test
     public void testInsert() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("Insert");
         String expResult = "4, 104, '6532652362526', 'Wed Jun 22 00:00:00 CEST 3921', 'Wed Jun 22 00:00:00 CEST 3921', 'milica', 'no', 195.0";
         String result = instance.Insert();
@@ -141,15 +132,6 @@ public class ReservationTest {
      */
     @Test
     public void testGetId() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("getId");
         int expResult = 4;
         int result = instance.getId();
@@ -161,15 +143,6 @@ public class ReservationTest {
      */
     @Test
     public void testGetRoom() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("getRoom");;
         Room result = instance.getRoom();
         assertEquals(104, result.getRoomNumber());
@@ -180,15 +153,6 @@ public class ReservationTest {
      */
     @Test
     public void testGetGuest() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("getGuest");
         Guest result = instance.getGuest();
         assertEquals("6532652362526", result.getPassportNumber());
@@ -199,15 +163,6 @@ public class ReservationTest {
      */
     @Test
     public void testGetEmployee() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("getEmployee");
         Employee result = instance.getEmployee();
         assertEquals("Milica Klaric", result.getName());
@@ -218,15 +173,6 @@ public class ReservationTest {
      */
     @Test
     public void testGetCheckIn() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("getCheckIn");
         Date expResult = new Date(2021, 5, 22);
         Date result = instance.getCheckIn();
@@ -238,15 +184,6 @@ public class ReservationTest {
      */
     @Test
     public void testGetCheckOut() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("getCheckOut");
         Date expResult = new Date(2021, 5, 22);
         Date result = instance.getCheckOut();
@@ -258,15 +195,6 @@ public class ReservationTest {
      */
     @Test
     public void testGetBreakfast() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("getBreakfast");
         String expResult = "no";
         String result = instance.getBreakfast();
@@ -278,15 +206,6 @@ public class ReservationTest {
      */
     @Test
     public void testGetTotal() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("getTotal");
         double expResult = 195.0;
         double result = instance.getTotal();
@@ -298,15 +217,6 @@ public class ReservationTest {
      */
     @Test
     public void testSetId() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("setId");
         int id = 0;
         instance.setId(id);
@@ -318,15 +228,6 @@ public class ReservationTest {
      */
     @Test
     public void testSetRoom() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("setRoom");
         Room roomNull = null;
         Room room1 = new Room();
@@ -340,19 +241,10 @@ public class ReservationTest {
      */
     @Test
     public void testSetGuest() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("setGuest");
         Guest guestNew = new Guest("6532652362526","Emilija","Kartalija","e.kartalija@gmailc.com");
-        instance.setGuest(guest);
-        assertEquals(guest.getPassportNumber(), instance.getGuest().getPassportNumber());
+        instance.setGuest(guestNew);
+        assertEquals(guestNew.getPassportNumber(), instance.getGuest().getPassportNumber());
     }
 
     /**
@@ -360,19 +252,10 @@ public class ReservationTest {
      */
     @Test
     public void testSetEmployee() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("setEmployee");
         Employee employeeNew = new Employee("uros", "bajic", "Uros Bajic");
-        instance.setEmployee(employee);
-        assertEquals(employee.getName(), instance.getEmployee().getName());
+        instance.setEmployee(employeeNew);
+        assertEquals(employeeNew.getName(), instance.getEmployee().getName());
     }
 
     /**
@@ -380,19 +263,10 @@ public class ReservationTest {
      */
     @Test
     public void testSetCheckIn() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("setCheckIn");
         Date checkInNew = new Date(2021, 5, 22);
-        instance.setCheckIn(checkIn);
-        assertEquals(checkIn, instance.getCheckIn());
+        instance.setCheckIn(checkInNew);
+        assertEquals(checkInNew, instance.getCheckIn());
     }
 
     /**
@@ -400,19 +274,10 @@ public class ReservationTest {
      */
     @Test
     public void testSetCheckOut() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("setCheckOut");
         Date checkOutNew = new Date(2021, 5, 27);
-        instance.setCheckOut(checkOut);
-        assertEquals(checkOut, instance.getCheckOut());
+        instance.setCheckOut(checkOutNew);
+        assertEquals(checkOutNew, instance.getCheckOut());
     }
 
     /**
@@ -420,15 +285,6 @@ public class ReservationTest {
      */
     @Test
     public void testSetBreakfast() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("setBreakfast");
         String breakfast = "yes";
         instance.setBreakfast(breakfast);
@@ -440,15 +296,6 @@ public class ReservationTest {
      */
     @Test
     public void testSetTotal() {
-        instance = new Reservation();
-        Room room = new Room();
-        room.setRoomNumber(104);
-        Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("6532652362526","Milan","Cekic","m.cekic@gmailc.com");
-        Date checkIn = new Date(2021, 5, 22);
-        Date checkOut = new Date(2021, 5, 22);
-        instance = new Reservation(4,room,guest,employee,checkIn,checkOut,"no");
-        instance.setTotal(195.0);
         System.out.println("setTotal");
         double total = 207.5;
         instance.setTotal(total);

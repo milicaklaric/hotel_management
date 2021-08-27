@@ -33,7 +33,6 @@ public class GuestTest {
      */
     @Test
     public void testTableName() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("TableName");
         String expResult = "Guest";
         String result = instance.TableName();
@@ -45,7 +44,6 @@ public class GuestTest {
      */
     @Test
     public void testJoin() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("Join");
         String expResult = "";
         String result = instance.Join();
@@ -57,7 +55,6 @@ public class GuestTest {
      */
     @Test
     public void testWhere() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("Where");
         String expResult = "";
         String result = instance.Where();
@@ -69,7 +66,6 @@ public class GuestTest {
      */
     @Test
     public void testUpdate() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("Update");
         String expResult = "";
         String result = instance.Update();
@@ -81,7 +77,6 @@ public class GuestTest {
      */
     @Test
     public void testInsert() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("Insert");
         String expResult = "'69563045263985', 'Jana', 'Jovanovic', '+381652036060'";
         String result = instance.Insert();
@@ -93,7 +88,6 @@ public class GuestTest {
      */
     @Test
     public void testReturnList() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("ReturnList");
         ResultSet rs = null;
         assertNull(instance.ReturnList(rs));
@@ -104,7 +98,6 @@ public class GuestTest {
      */
     @Test
     public void testGetRecord() throws Exception {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("GetRecord");
         ResultSet rs = null;
         assertNull(instance.GetRecord(rs));
@@ -115,7 +108,6 @@ public class GuestTest {
      */
     @Test
     public void testToString() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("toString");
         String expResult = "Jana Jovanovic";
         String result = instance.toString();
@@ -127,7 +119,6 @@ public class GuestTest {
      */
     @Test
     public void testGetPassportNumber() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("getPassportNumber");
         String expResult = "69563045263985";
         String result = instance.getPassportNumber();
@@ -139,7 +130,6 @@ public class GuestTest {
      */
     @Test
     public void testGetFirstName() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("getFirstName");
         String expResult = "Jana";
         String result = instance.getFirstName();
@@ -151,7 +141,6 @@ public class GuestTest {
      */
     @Test
     public void testGetLastName() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("getLastName");
         String expResult = "Jovanovic";
         String result = instance.getLastName();
@@ -163,7 +152,6 @@ public class GuestTest {
      */
     @Test
     public void testGetContactInfo() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("getContactInfo");
         String expResult = "+381652036060";
         String result = instance.getContactInfo();
@@ -175,7 +163,6 @@ public class GuestTest {
      */
     @Test
     public void testSetPassportNumber() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("setPassportNumber");
         String passportNumber = "00063045263985";
         instance.setPassportNumber(passportNumber);
@@ -187,7 +174,6 @@ public class GuestTest {
      */
     @Test
     public void testSetFirstName() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("setFirstName");
         String firstName = "Iva";
         instance.setFirstName(firstName);
@@ -199,7 +185,6 @@ public class GuestTest {
      */
     @Test
     public void testSetLastName() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("setLastName");
         String lastName = "Veljkovic";
         instance.setLastName(lastName);
@@ -211,7 +196,6 @@ public class GuestTest {
      */
     @Test
     public void testSetContactInfo() {
-        instance = new Guest("69563045263985","Jana","Jovanovic","+381652036060");
         System.out.println("setContactInfo");
         String contactInfo = "+381652035000";
         instance.setContactInfo(contactInfo);
