@@ -101,9 +101,9 @@ public class Reservation extends GeneralDomainObject {
 
     @Override
     public String Insert() {
-        String insert = (id + ", " +(room == null ? null : room.getRoomNumber()) + ", " + (guest == null ? null : "'" + guest.getPassportNumber() + "'") + ", " + (checkIn == null ? null : "'" + checkIn + "'") + ", " + (checkOut == null ? null : "'" + checkOut + "'") + ", " + (employee == null ? null : "'" + employee.getUsername() + "'") + ", " + (breakfast == null ? null : "'" + breakfast + "'") + ", " + total);
+        String insert = (id + ", " +(room == null ? null : room.getRoomNumber()) + ", " + (guest == null ? null : "'" + guest.getPassportNumber() + "'") + ", datetime" + (checkIn == null ? null : "('" + new SimpleDateFormat("yyyy-MM-dd").format(checkIn) + "')") + ", datetime" + (checkOut == null ? null : "('" + new SimpleDateFormat("yyyy-MM-dd").format(checkOut) + "')") + ", " + (employee == null ? null : "'" + employee.getUsername() + "'") + ", " + (breakfast == null ? null : "'" + breakfast + "'") + ", " + total);
         System.out.println(insert);
-        return id + ", " +(room == null ? null : room.getRoomNumber()) + ", " + (guest == null ? null : "'" + guest.getPassportNumber() + "'") + ", " + (checkIn == null ? null : "'" + checkIn + "'") + ", " + (checkOut == null ? null : "'" + checkOut + "'") + ", " + (employee == null ? null : "'" + employee.getUsername() + "'") + ", " + (breakfast == null ? null : "'" + breakfast + "'") + ", " + total;
+        return id + ", " +(room == null ? null : room.getRoomNumber()) + ", " + (guest == null ? null : "'" + guest.getPassportNumber() + "'") + ", datetime" + (checkIn == null ? null : "('" + new SimpleDateFormat("yyyy-MM-dd").format(checkIn) + "')") + ", datetime" + (checkOut == null ? null : "('" + new SimpleDateFormat("yyyy-MM-dd").format(checkOut) + "')") + ", " + (employee == null ? null : "'" + employee.getUsername() + "'") + ", " + (breakfast == null ? null : "'" + breakfast + "'") + ", " + total;
     }
 
     @Override

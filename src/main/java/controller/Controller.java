@@ -21,8 +21,8 @@ import java.util.List;
 public class Controller {
 
     private static Controller controller;
-    private Broker broker = new Broker();
-    private String url;
+    private final Broker broker = new Broker();
+    private final String url;
 
     private Controller(String url) {
         this.url = url;

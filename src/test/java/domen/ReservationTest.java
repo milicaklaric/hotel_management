@@ -97,7 +97,7 @@ public class ReservationTest {
     @Test
     public void testInsert() {
         System.out.println("Insert");
-        String expResult = "4, 104, '6532652362526', 'Wed Jun 22 00:00:00 CEST 3921', 'Wed Jun 22 00:00:00 CEST 3921', 'milica', 'no', 195.0";
+        String expResult = "4, 104, '6532652362526', datetime('3921-06-22'), datetime('3921-06-22'), 'milica', 'no', 195.0";
         String result = instance.Insert();
         
         assertEquals(expResult, result);

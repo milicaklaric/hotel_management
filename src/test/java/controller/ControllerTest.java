@@ -46,7 +46,7 @@ public class ControllerTest {
     /**
      * Test of getInstance method, of class Controller.
      */
-    //@Test
+    @Test
     public void testGetInstance() {
         System.out.println("getInstance");
         controller = Controller.getInstanceForTests();
@@ -60,21 +60,21 @@ public class ControllerTest {
     /**
      * Test of getEmployee method, of class Controller.
      */
-   // @Test
+    @Test
     public void testGetEmployeeDoesNotExist() {
         System.out.println("getEmployee");
         Employee result = controller.getEmployee("nevena", "klaric");
         assertNull(result);
     }
     
-    //@Test
+    @Test
     public void testGetEmployeeWrongPassword() {
         System.out.println("getEmployee");
         Employee result = controller.getEmployee("milica", "milic");
         assertNull(result);
     }
     
-   // @Test
+    @Test
     public void testGetEmployee() {
         System.out.println("getEmployee");
         Employee result = controller.getEmployee("milica", "milica");
@@ -85,18 +85,18 @@ public class ControllerTest {
     /**
      * Test of getReservations method, of class Controller.
      */
-    //@Test
+    @Test
     public void testGetReservations() {
         System.out.println("getReservations");
         ArrayList<GeneralDomainObject> result = controller.getReservations();
         assertNotNull(result);
-        assertEquals(4,result.size());
+        assertEquals(2,result.size());
     }
 
     /**
      * Test of getRoomTypes method, of class Controller.
      */
-    //@Test
+    @Test
     public void testGetRoomTypes() {
         System.out.println("getRoomTypes");
         ArrayList<GeneralDomainObject> result = controller.getRoomTypes();
@@ -107,7 +107,7 @@ public class ControllerTest {
     /**
      * Test of getRooms method, of class Controller.
      */
-    //@Test
+    @Test
     public void testGetRooms() {
         System.out.println("getRooms");
         ArrayList<GeneralDomainObject> result;
@@ -131,27 +131,27 @@ public class ControllerTest {
         Employee employee = new Employee("milica", "milica", "Milica Klaric");
         Guest guest = new Guest("0012345678","Milan","Cekic","m.cekic@gmailc.com");
         res = new Reservation(44,room,guest,employee,null,null,"no");
-        res.setCheckIn(new SimpleDateFormat("yyyy-MM-dd").parse("2021-8-21"));
-        res.setCheckOut(new SimpleDateFormat("yyyy-MM-dd").parse("2021-8-21"));
+        res.setCheckIn(new SimpleDateFormat("yyyy-MM-dd").parse("2021-08-20"));
+        res.setCheckOut(new SimpleDateFormat("yyyy-MM-dd").parse("2021-08-30"));
         res.setTotal(195.0);
         
         boolean saved = controller.saveReservation(res);
         
-        //assertTrue(saved);
+        assertTrue(saved);
         
         ArrayList<GeneralDomainObject> reservations = controller.getReservations();
         
         assertNotNull(reservations);
         assertTrue(reservations.contains(res));
         
-        //controller.deleteReservation(res);
+        controller.deleteReservation(res);
        
     }
 
     /**
      * Test of deleteReservation method, of class Controller.
      */
-    //@Test
+    @Test
     public void testDeleteReservation() throws ParseException {
         System.out.println("deleteReservation");
         
@@ -159,11 +159,11 @@ public class ControllerTest {
         Room room = new Room();
         room.setRoomNumber(104);
         Employee employee = new Employee("milica", "milica", "Milica Klaric");
-        Guest guest = new Guest("0012345678","Milan","Cekic","m.cekic@gmailc.com");
+        Guest guest = new Guest("005209853","Katarina","lica","k.ilic@gmailc.com");
         
         res = new Reservation(44,room,guest,employee,null,null,"no");
-        res.setCheckIn(new SimpleDateFormat("yyyy-MM-dd").parse("2021-8-21"));
-        res.setCheckOut(new SimpleDateFormat("yyyy-MM-dd").parse("2021-8-21"));
+        res.setCheckIn(new SimpleDateFormat("yyyy-MM-dd").parse("2021-08-20"));
+        res.setCheckOut(new SimpleDateFormat("yyyy-MM-dd").parse("2021-08-30"));
         res.setTotal(195.0);
         
         boolean saved = controller.saveReservation(res);
