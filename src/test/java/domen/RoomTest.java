@@ -36,8 +36,6 @@ public class RoomTest {
      */
     @Test
     public void testTableName() {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("TableName");
         String expResult = "Room";
         String result = instance.TableName();
@@ -49,8 +47,6 @@ public class RoomTest {
      */
     @Test
     public void testJoin() {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("Join");
         String expResult = "";
         String result = instance.Join();
@@ -62,8 +58,6 @@ public class RoomTest {
      */
     @Test
     public void testWhere() {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("Where");
         String expResult = " WHERE TypeID = " + instance.getType().getTypeID();
         String result = instance.Where();
@@ -75,8 +69,6 @@ public class RoomTest {
      */
     @Test
     public void testUpdate() {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("Update");
         String expResult = "";
         String result = instance.Update();
@@ -88,8 +80,6 @@ public class RoomTest {
      */
     @Test
     public void testInsert() {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("Insert");
         String expResult = "";
         String result = instance.Insert();
@@ -101,8 +91,6 @@ public class RoomTest {
      */
     @Test
     public void testReturnList() {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("ReturnList");
         ResultSet rs = null;
         assertNull(instance.ReturnList(rs));
@@ -113,8 +101,6 @@ public class RoomTest {
      */
     @Test
     public void testGetRecord()  {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("GetRecord");
         ResultSet rs = null;
         assertThrows(java.lang.NullPointerException.class,
@@ -150,8 +136,6 @@ public class RoomTest {
      */
     @Test
     public void testGetType() {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("getType");
         RoomType result = instance.getType();
         assertEquals(1, result.getTypeID());
@@ -162,8 +146,6 @@ public class RoomTest {
      */
     @Test
     public void testGetRoomNumber() {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("getRoomNumber");
         int expResult = 100;
         int result = instance.getRoomNumber();
@@ -175,8 +157,6 @@ public class RoomTest {
      */
     @Test
     public void testGetView() {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("getView");
         String expResult = "beach";
         String result = instance.getView();
@@ -188,8 +168,6 @@ public class RoomTest {
      */
     @Test
     public void testIsAvailable() {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("isAvailable");
         boolean expResult = true;
         boolean result = instance.isAvailable();
@@ -201,8 +179,6 @@ public class RoomTest {
      */
     @Test
     public void testSetTypeNull() {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("setTypeNull");
         RoomType typeNull = null;
         instance.setType(typeNull);
@@ -212,8 +188,6 @@ public class RoomTest {
     
     @Test
     public void testSetType() {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("setType");
         RoomType typeNew = new RoomType(1, "Studio", "some features", 20.0, 2);
         instance.setType(typeNew);
@@ -226,9 +200,6 @@ public class RoomTest {
      */
     @Test
     public void testSetRoomNumber() {
-        
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("setRoomNumber");
         int roomNumber = 200;
         instance.setRoomNumber(roomNumber);
@@ -240,8 +211,6 @@ public class RoomTest {
      */
     @Test
     public void testSetView() {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("setView");
         String view = "garden";
         instance.setView(view);
@@ -253,8 +222,6 @@ public class RoomTest {
      */
     @Test
     public void testSetAvailable() {
-        RoomType type = new RoomType(1, "Studio", "some features", 20.0, 2);
-        instance = new Room(type, 100, "beach", true);
         System.out.println("setAvailable");
         boolean available = false;
         instance.setAvailable(available);

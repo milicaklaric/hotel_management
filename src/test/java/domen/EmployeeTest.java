@@ -32,8 +32,7 @@ public class EmployeeTest {
      * Test of TableName method, of class Employee.
      */
     @Test
-    public void testTableName() {
-        instance = new Employee("milica","milica","Milica Klaric");   
+    public void testTableName() {   
         System.out.println("TableName");
         String expResult = "Employee";
         String result = instance.TableName();
@@ -44,8 +43,7 @@ public class EmployeeTest {
      * Test of Join method, of class Employee.
      */
     @Test
-    public void testJoin() {
-        instance = new Employee("milica","milica","Milica Klaric");   
+    public void testJoin() {   
         System.out.println("Join");
         String expResult = "";
         String result = instance.Join();
@@ -57,7 +55,6 @@ public class EmployeeTest {
      */
     @Test
     public void testWhere() {
-        instance = new Employee("milica","milica","Milica Klaric");   
         System.out.println("Where");
         String expResult = " WHERE username LIKE '" + instance.getUsername()+"'";
         String result = instance.Where();
@@ -69,7 +66,6 @@ public class EmployeeTest {
      */
     @Test
     public void testUpdate() {
-        instance = new Employee("milica","milica","Milica Klaric");   
         System.out.println("Update");
         String expResult = "";
         String result = instance.Update();
@@ -80,8 +76,7 @@ public class EmployeeTest {
      * Test of Insert method, of class Employee.
      */
     @Test
-    public void testInsert() {
-        instance = new Employee("milica","milica","Milica Klaric");   
+    public void testInsert() {  
         System.out.println("Insert");
         String expResult = "";
         String result = instance.Insert();
@@ -92,8 +87,7 @@ public class EmployeeTest {
      * Test of ReturnList method, of class Employee.
      */
     @Test
-    public void testReturnList() {
-        instance = new Employee("milica","milica","Milica Klaric");   
+    public void testReturnList() { 
         System.out.println("ReturnList");
         ResultSet rs = null;
         assertThrows(java.lang.NullPointerException.class,
@@ -104,8 +98,7 @@ public class EmployeeTest {
      * Test of GetRecord method, of class Employee.
      */
     @Test
-    public void testGetRecord() {
-        instance = new Employee("milica","milica","Milica Klaric");   
+    public void testGetRecord() {  
         System.out.println("GetRecord");
         ResultSet rs = null;
         assertThrows(java.lang.NullPointerException.class,
@@ -117,7 +110,6 @@ public class EmployeeTest {
      */
     @Test
     public void testToString() {
-        instance = new Employee("milica","milica","Milica Klaric");   
         System.out.println("toString");
         String expResult = instance.getName();
         String result = instance.toString();
@@ -128,8 +120,7 @@ public class EmployeeTest {
      * Test of getUsername method, of class Employee.
      */
     @Test
-    public void testGetUsername() {
-        instance = new Employee("milica","milica","Milica Klaric");   
+    public void testGetUsername() { 
         System.out.println("getUsername");
         String expResult = "milica";
         String result = instance.getUsername();
@@ -140,8 +131,7 @@ public class EmployeeTest {
      * Test of getPassword method, of class Employee.
      */
     @Test
-    public void testGetPassword() {
-        instance = new Employee("milica","milica","Milica Klaric");   
+    public void testGetPassword() { 
         System.out.println("getPassword");
         String expResult = "milica";
         String result = instance.getPassword();
@@ -152,8 +142,7 @@ public class EmployeeTest {
      * Test of getName method, of class Employee.
      */
     @Test
-    public void testGetName() {
-        instance = new Employee("milica","milica","Milica Klaric");   
+    public void testGetName() {  
         System.out.println("getName");
         String expResult = "Milica Klaric";
         String result = instance.getName();
@@ -164,8 +153,7 @@ public class EmployeeTest {
      * Test of setUsername method, of class Employee.
      */
     @Test
-    public void testSetUsername() {
-        instance = new Employee("milica","milica","Milica Klaric");   
+    public void testSetUsername() {  
         System.out.println("setUsername");
         String username = "jana";
         instance.setUsername(username);
@@ -177,7 +165,6 @@ public class EmployeeTest {
      */
     @Test
     public void testSetPassword() {
-        instance = new Employee("milica","milica","Milica Klaric");   
         System.out.println("setPassword");
         String password = "janaPass";
         instance.setPassword(password);
@@ -188,8 +175,7 @@ public class EmployeeTest {
      * Test of setName method, of class Employee.
      */
     @Test
-    public void testSetName() {
-        instance = new Employee("milica","milica","Milica Klaric");   
+    public void testSetName() { 
         System.out.println("setName");
         String name = "Jana Jovanovic";
         instance.setName(name);

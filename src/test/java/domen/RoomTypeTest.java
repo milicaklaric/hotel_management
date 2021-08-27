@@ -37,7 +37,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testTableName() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("TableName");
         String expResult = "RoomType";
         String result = instance.TableName();
@@ -49,7 +48,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testJoin() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("Join");
         String expResult = "";
         String result = instance.Join();
@@ -61,7 +59,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testWhere() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("Where");
         String expResult = "";
         String result = instance.Where();
@@ -73,7 +70,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testUpdate() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("Update");
         String expResult = "";
         String result = instance.Update();
@@ -85,7 +81,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testInsert() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("Insert");
         String expResult = "";
         String result = instance.Insert();
@@ -97,7 +92,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testReturnList() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("ReturnList");
         ResultSet rs = null;
         List<GeneralDomainObject> expResult = null;
@@ -110,7 +104,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testGetRecord() throws Exception {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("GetRecord");
         ResultSet rs = null;
         GeneralDomainObject expResult = null;
@@ -123,7 +116,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testToString() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("toString");
         String expResult = "1 Double - 15.0 eur/night - 4 people max";
         String result = instance.toString();
@@ -135,7 +127,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testGetTypeID() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("getTypeID");
         int expResult = 1;
         int result = instance.getTypeID();
@@ -147,7 +138,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testGetTypeName() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("getTypeName");
         String expResult = "Double";
         String result = instance.getTypeName();
@@ -159,7 +149,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testGetFeatures() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("getFeatures");
         String expResult = "Featires";
         String result = instance.getFeatures();
@@ -171,7 +160,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testGetPricePerNight() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("getPricePerNight");
         double result = instance.getPricePerNight();
         assertEquals(15.0, result);
@@ -182,7 +170,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testGetCapacity() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("getCapacity");
         int expResult = 4;
         int result = instance.getCapacity();
@@ -194,7 +181,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testSetTypeID() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("setTypeID");
         int typeID = 2;
         instance.setTypeID(typeID);
@@ -206,7 +192,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testSetTypeName() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("setTypeName");
         String typeName = "Studio";
         instance.setTypeName(typeName);
@@ -218,7 +203,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testSetFeatures() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("setFeatures");
         String features = "New features";
         instance.setFeatures(features);
@@ -230,7 +214,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testSetPricePerNight() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("setPricePerNight");
         double pricePerNight = 11.0;
         instance.setPricePerNight(pricePerNight);
@@ -242,7 +225,6 @@ public class RoomTypeTest {
      */
     @Test
     public void testSetCapacity() {
-        instance = new RoomType(1, "Double", "Featires", 15.0, 4);
         System.out.println("setCapacity");
         int capacity = 2;
         instance.setCapacity(capacity);
