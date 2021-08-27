@@ -11,6 +11,7 @@ view\controller\CancelReservationController.class
 domen\Room.class
 view\controller\LoginController.class
 view\controller\NewReservationController$1.class
+controller\Controller$1.class
 domen\Guest.class
 view\form\FrmNewReservation.class
 view\form\FrmCancelReservation$1.class
@@ -27,6 +28,7 @@ view\form\table\RoomsTableModel.class
 view\controller\CancelReservationController$2.class
 view\controller\HomeController$1.class
 view\controller\AllReservationsController.class
+controller\Controller$2.class
 domen\RoomType.class
 view\controller\LoginController$1.class
 controller\Controller.class

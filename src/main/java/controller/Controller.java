@@ -138,10 +138,11 @@ public class Controller {
                 }.getType();
                 List<Reservation> savedReservations = gson.fromJson(fileRead, typeToken);
 
+                if (savedReservations == null)
+                    savedReservations = new ArrayList<>();
                 savedReservations.add(res);
 
                 try ( FileWriter fileWrite = new FileWriter("savedReservations.json")) {
-                    fileWrite.write("New reservation saved: \n");
                     Gson gsonWrite = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
                     gsonWrite.toJson(res, fileWrite);
 
@@ -175,12 +176,13 @@ public class Controller {
 
                 Type typeToken = new TypeToken<LinkedList<Reservation>>() {
                 }.getType();
-                List<Reservation> savedReservations = gson.fromJson(fileRead, typeToken);
+                List<Reservation> deletedReservations = gson.fromJson(fileRead, typeToken);
 
-                savedReservations.add(res);
+                if (deletedReservations == null)
+                    deletedReservations = new ArrayList<>();
+                deletedReservations.add(res);
 
                 try ( FileWriter fileWrite = new FileWriter("deletedReservations.json")) {
-                    fileWrite.write("Reservation deleted: \n");
                     Gson gsonWrite = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
                     gsonWrite.toJson(res, fileWrite);
 
