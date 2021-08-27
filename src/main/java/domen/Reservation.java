@@ -137,4 +137,13 @@ public class Reservation extends GeneralDomainObject {
 
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (((Reservation)obj).getId() == this.id)
+            return true;
+        return false;
+    }
+    
+    
+
 }
